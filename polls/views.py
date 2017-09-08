@@ -34,7 +34,7 @@ def vote(req, question_id):
     else:
         selected_choice.votes += 1
         selected_choice.save()
-        return HttpResponseRedirect(reverse('results'), args=(p.id))
+        return HttpResponseRedirect(reverse('results', args=(p.id,)))
 
 def results(req, question_id):
     question = get_object_or_404(Question, pk=question_id)
